@@ -1,0 +1,31 @@
+# E-Commerce Sentiment Analysis Dashboard
+# Core dependencies
+
+# Web Framework
+streamlit>=1.28.0
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Machine Learning / NLP
+transformers>=4.35.0
+torch>=2.0.0
+
+# Visualization
+plotly>=5.18.0
+wordcloud>=1.9.0
+
+# Web Scraping (for data collection)
+beautifulsoup4>=4.12.0
+requests>=2.31.0
+
+# Date handling
+python-dateutil>=2.8.0
+
+# Export functionality
+openpyxl>=3.1.0
+
+# Utilities
+typing-extensions>=4.8.0
+Pillow>=10.0.0

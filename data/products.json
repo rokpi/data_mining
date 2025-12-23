@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "Hiking Boots for Outdoor Adventures",
+    "category": "Apparel",
+    "price": 89.99,
+    "image_url": "https://web-scraping.dev/assets/products/hiking-boots-1.webp",
+    "product_url": "https://web-scraping.dev/product/7"
+  },
+  {
+    "id": 2,
+    "name": "Women's High Heel Sandals",
+    "category": "Apparel",
+    "price": 59.99,
+    "image_url": "https://web-scraping.dev/assets/products/women-sandals-beige-1.webp",
+    "product_url": "https://web-scraping.dev/product/8"
+  },
+  {
+    "id": 3,
+    "name": "Running Shoes for Men",
+    "category": "Apparel",
+    "price": 49.99,
+    "image_url": "https://web-scraping.dev/assets/products/men-running-shoes.webp",
+    "product_url": "https://web-scraping.dev/product/9"
+  },
+  {
+    "id": 4,
+    "name": "Kids' Light-Up Sneakers",
+    "category": "Apparel",
+    "price": 29.99,
+    "image_url": "https://web-scraping.dev/assets/products/kids-light-up-sneakers-red-1.webp",
+    "product_url": "https://web-scraping.dev/product/10"
+  },
+  {
+    "id": 5,
+    "name": "Classic Leather Sneakers",
+    "category": "Apparel",
+    "price": 79.99,
+    "image_url": "https://web-scraping.dev/assets/products/classic-leather-sneakers-white.webp",
+    "product_url": "https://web-scraping.dev/product/11"
+  },
+  {
+    "id": 6,
+    "name": "Cat-Ear Beanie",
+    "category": "Apparel",
+    "price": 14.99,
+    "image_url": "https://www.web-scraping.dev/assets/products/cat-ear-beanie-grey.webp",
+    "product_url": "https://web-scraping.dev/product/12"
+  },
+  {
+    "id": 7,
+    "name": "Box of Chocolate Candy",
+    "category": "Consumables",
+    "price": 24.99,
+    "image_url": "https://www.web-scraping.dev/assets/products/orange-chocolate-box-medium-1.webp",
+    "product_url": "https://web-scraping.dev/product/1"
+  },
+  {
+    "id": 8,
+    "name": "Dark Red Energy Potion",
+    "category": "Consumables",
+    "price": 4.99,
+    "image_url": "https://www.web-scraping.dev/assets/products/darkred-potion.webp",
+    "product_url": "https://web-scraping.dev/product/2"
+  },
+  {
+    "id": 9,
+    "name": "Teal Energy Potion",
+    "category": "Consumables",
+    "price": 4.99,
+    "image_url": "https://www.web-scraping.dev/assets/products/teal-potion.webp",
+    "product_url": "https://web-scraping.dev/product/3"
+  },
+  {
+    "id": 10,
+    "name": "Red Energy Potion",
+    "category": "Consumables",
+    "price": 4.99,
+    "image_url": "https://www.web-scraping.dev/assets/products/red-potion.webp",
+    "product_url": "https://web-scraping.dev/product/4"
+  },
+  {
+    "id": 11,
+    "name": "Blue Energy Potion",
+    "category": "Consumables",
+    "price": 4.99,
+    "image_url": "https://www.web-scraping.dev/assets/products/blue-potion.webp",
+    "product_url": "https://web-scraping.dev/product/5"
+  },
+  {
+    "id": 12,
+    "name": "Dragon Energy Potion",
+    "category": "Consumables",
+    "price": 4.99,
+    "image_url": "https://web-scraping.dev/assets/products/dragon-potion.webp",
+    "product_url": "https://web-scraping.dev/product/6"
+  }
+]
