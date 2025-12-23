@@ -248,21 +248,10 @@ def scrape_reviews_graphql(products: list[dict[str, Any]]) -> list[dict[str, Any
     
     # Create a mapping of product names (from rid) to product IDs
     product_name_to_id = {}
-    product_name_variants = {}
     for product in products:
         # Normalize the product name for matching
         normalized_name = normalize_name(product['name'])
         product_name_to_id[normalized_name] = product['id']
-        
-        # Create word-based index for fuzzy matching
-        words = normalized_name.split()
-        for i in range(len(words)):
-            # Store each substring combination
-            for j in range(i+1, len(words)+1):
-                key = " ".join(words[i:j])
-                if key not in product_name_variants:
-                    product_name_variants[key] = []
-                product_name_variants[key].append((product['id'], product['name'], normalized_name))
     
     # CORRECTED GraphQL query - only fields that exist
     query = """
@@ -330,18 +319,15 @@ def scrape_reviews_graphql(products: list[dict[str, Any]]) -> list[dict[str, Any
                 date_str = node.get('date', '')
                 
                 # Extract product name from rid
-                # rid format: "teal-potion-4" -> product name: "Teal Potion"
-                # rid format: "classic-leather-sneakers-10" -> "Classic Leather Sneakers"
                 rid = node.get('rid', '')
                 
                 # Remove the trailing number (e.g., "-4", "-10")
-                # Split by '-' and remove the last part if it's a number
                 parts = rid.split('-')
                 if parts and parts[-1].isdigit():
                     parts = parts[:-1]
                 
-                # Join back and title case
-                product_name_from_rid = ' '.join(parts).title()
+                # Join back and normalize
+                product_name_from_rid = ' '.join(parts)
                 normalized_rid = normalize_name(product_name_from_rid)
                 
                 # Try to match with actual product
@@ -356,40 +342,45 @@ def scrape_reviews_graphql(products: list[dict[str, Any]]) -> list[dict[str, Any
                             product_name_matched = p['name']
                             break
                 else:
-                    # Try direct lookup in variants
-                    if normalized_rid in product_name_variants:
-                        matches = product_name_variants[normalized_rid]
-                        if matches:
-                            product_id, product_name_matched, _ = matches[0]
-                    else:
-                        # Fuzzy matching - find product where rid words are subset of product words
-                        rid_words = set(normalized_rid.split())
-                        best_match = None
-                        best_score = 0
+                    # Fuzzy matching - find the BEST match
+                    # Prioritize: exact word match > most words matched > longest match
+                    rid_words = normalized_rid.split()
+                    rid_word_set = set(rid_words)
+                    
+                    best_match = None
+                    best_score = (0, 0, 0)  # (exact_match, word_count_match, length)
+                    
+                    for normalized_prod_name, prod_id in product_name_to_id.items():
+                        prod_words = normalized_prod_name.split()
+                        prod_word_set = set(prod_words)
                         
-                        for normalized_prod_name, prod_id in product_name_to_id.items():
-                            prod_words = set(normalized_prod_name.split())
-                            
-                            # Check if all rid words are in product words
-                            if rid_words.issubset(prod_words):
-                                # Score based on how many words match
-                                score = len(rid_words)
-                                if score > best_score:
-                                    best_score = score
-                                    best_match = prod_id
+                        # Check if all rid words are in product words
+                        if not rid_word_set.issubset(prod_word_set):
+                            continue
                         
-                        if best_match:
-                            product_id = best_match
-                            for p in products:
-                                if p['id'] == product_id:
-                                    product_name_matched = p['name']
-                                    break
+                        # Calculate score
+                        exact_match = 1 if normalized_rid == normalized_prod_name else 0
+                        word_count_match = len(rid_word_set)
+                        length_diff = abs(len(rid_words) - len(prod_words))
+                        
+                        # Score: prioritize exact match, then word count, then prefer shorter product names (less length diff)
+                        score = (exact_match, word_count_match, -length_diff)
+                        
+                        if score > best_score:
+                            best_score = score
+                            best_match = prod_id
+                    
+                    if best_match:
+                        product_id = best_match
+                        for p in products:
+                            if p['id'] == product_id:
+                                product_name_matched = p['name']
+                                break
 
                 if not product_id:
                     logger.warning(f"Could not match product for rid: {rid} (normalized: '{normalized_rid}')")
                     continue
 
-                # ONLY REAL DATA - no synthetic fields
                 review = {
                     "id": review_id,
                     "product_id": product_id,
@@ -401,11 +392,10 @@ def scrape_reviews_graphql(products: list[dict[str, Any]]) -> list[dict[str, Any
                 reviews.append(review)
                 review_id += 1
             
-            # Check for next page - this is the "Load More" button logic
+            # Check for next page
             has_next = page_info.get('hasNextPage', False)
             cursor = page_info.get('endCursor')
             
-            # If hasNextPage is False, the button would have "d-none" class
             if not has_next or not cursor:
                 logger.info("No more pages (Load More button would be hidden)")
                 break

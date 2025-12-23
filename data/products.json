@@ -44,7 +44,7 @@
     "name": "Cat-Ear Beanie",
     "category": "Apparel",
     "price": 14.99,
-    "image_url": "https://www.web-scraping.dev/assets/products/cat-ear-beanie-grey.webp",
+    "image_url": "https://web-scraping.dev/assets/products/cat-ear-beanie-grey.webp",
     "product_url": "https://web-scraping.dev/product/12"
   },
   {
@@ -52,7 +52,7 @@
     "name": "Box of Chocolate Candy",
     "category": "Consumables",
     "price": 24.99,
-    "image_url": "https://www.web-scraping.dev/assets/products/orange-chocolate-box-medium-1.webp",
+    "image_url": "https://web-scraping.dev/assets/products/orange-chocolate-box-medium-1.webp",
     "product_url": "https://web-scraping.dev/product/1"
   },
   {
@@ -60,7 +60,7 @@
     "name": "Dark Red Energy Potion",
     "category": "Consumables",
     "price": 4.99,
-    "image_url": "https://www.web-scraping.dev/assets/products/darkred-potion.webp",
+    "image_url": "https://web-scraping.dev/assets/products/darkred-potion.webp",
     "product_url": "https://web-scraping.dev/product/2"
   },
   {
@@ -68,7 +68,7 @@
     "name": "Teal Energy Potion",
     "category": "Consumables",
     "price": 4.99,
-    "image_url": "https://www.web-scraping.dev/assets/products/teal-potion.webp",
+    "image_url": "https://web-scraping.dev/assets/products/teal-potion.webp",
     "product_url": "https://web-scraping.dev/product/3"
   },
   {
@@ -76,7 +76,7 @@
     "name": "Red Energy Potion",
     "category": "Consumables",
     "price": 4.99,
-    "image_url": "https://www.web-scraping.dev/assets/products/red-potion.webp",
+    "image_url": "https://web-scraping.dev/assets/products/red-potion.webp",
     "product_url": "https://web-scraping.dev/product/4"
   },
   {
@@ -84,7 +84,7 @@
     "name": "Blue Energy Potion",
     "category": "Consumables",
     "price": 4.99,
-    "image_url": "https://www.web-scraping.dev/assets/products/blue-potion.webp",
+    "image_url": "https://web-scraping.dev/assets/products/blue-potion.webp",
     "product_url": "https://web-scraping.dev/product/5"
   },
   {
@@ -92,7 +92,7 @@
     "name": "Dragon Energy Potion",
     "category": "Consumables",
     "price": 4.99,
-    "image_url": "https://web-scraping.dev/assets/products/dragon-potion.webp",
+    "image_url": "https://www.web-scraping.dev/assets/products/dragon-potion.webp",
     "product_url": "https://web-scraping.dev/product/6"
   }
 ]

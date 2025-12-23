@@ -9,8 +9,8 @@
   },
   {
     "id": 2,
-    "product_id": 8,
-    "product_name": "Dark Red Energy Potion",
+    "product_id": 10,
+    "product_name": "Red Energy Potion",
     "rating": 5,
     "text": "Good flavor and keeps me energized. The bottle design is really fun.",
     "date": "2023-05-17"
@@ -129,8 +129,8 @@
   },
   {
     "id": 17,
-    "product_id": 8,
-    "product_name": "Dark Red Energy Potion",
+    "product_id": 10,
+    "product_name": "Red Energy Potion",
     "rating": 4,
     "text": "It's like a health potion for gamers! The energy boost is spot on.",
     "date": "2023-04-09"
@@ -209,8 +209,8 @@
   },
   {
     "id": 27,
-    "product_id": 8,
-    "product_name": "Dark Red Energy Potion",
+    "product_id": 10,
+    "product_name": "Red Energy Potion",
     "rating": 5,
     "text": "Not only does it look cool, but it tastes great and gives a good energy boost!",
     "date": "2023-03-20"
@@ -369,8 +369,8 @@
   },
   {
     "id": 47,
-    "product_id": 8,
-    "product_name": "Dark Red Energy Potion",
+    "product_id": 10,
+    "product_name": "Red Energy Potion",
     "rating": 5,
     "text": "The berry flavor is intense and delicious. Great for keeping me focused during my gaming sessions.",
     "date": "2023-02-10"
